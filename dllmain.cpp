@@ -36,7 +36,7 @@ DWORD WINAPI Oldschool(HMODULE hModule) {
     // Static address is still relative to base module entry point. i.e <dynamic module entry point + staticAddress>
     uintptr_t* skillsAddress = (uintptr_t*)(addresses.getBase() + addresses.getSkillBase());
     // Declare & define pointer to the location in memory where Jagex stores skill levels.
-	SkillBase* mySkills      = (SkillBase*)(uintptr_t*)(addresses.getBase() + addresses.getSkillBase());
+    SkillBase* mySkills      = (SkillBase*)(uintptr_t*)(addresses.getBase() + addresses.getSkillBase());
 
     // We can now access those values as if they were structs we constructed ourselves.
     std::cout << "Skill list base address: " << skillsAddress << std::endl;
@@ -47,9 +47,8 @@ DWORD WINAPI Oldschool(HMODULE hModule) {
 
 
     for (;;) {
-		int* fletchingExp = (int*)(addresses.getBase() + addresses.getFletchingExp());
-		std::cout << *fletchingExp << std::endl;
-
+        int* fletchingExp = (int*)(addresses.getBase() + addresses.getFletchingExp());
+        std::cout << *fletchingExp << std::endl;
         Sleep(5);
     }
 }
